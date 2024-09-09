@@ -12,30 +12,43 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserControllers = void 0;
+exports.ProductControllers = void 0;
 const http_status_1 = __importDefault(require("http-status"));
 const catchAsync_1 = __importDefault(require("../../utils/catchAsync"));
 const sendResponse_1 = __importDefault(require("../../utils/sendResponse"));
-const user_service_1 = require("./user.service");
-const getUser = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield user_service_1.UserServices.createUserIntoDB(req.body);
+const product_service_1 = require("./product.service");
+const createProduct = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    // const zodParseData = UserValidation.userValidationSchema().parse(studentData);
+    const result = yield product_service_1.ProductServices.
+        createProductIntoDB(req.body);
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
-        message: "User Created successfully",
-        data: result,
+        message: 'Product is Created Successfully',
+        data: result
     });
 }));
-const createUser = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield user_service_1.UserServices.getUserFromDB();
+const getAllProduct = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield product_service_1.ProductServices.getProductFromDB();
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
-        message: "User get successfully",
-        data: result,
+        message: 'Products is Found Successfully',
+        data: result
     });
 }));
-exports.UserControllers = {
-    getUser,
-    createUser,
+const getSingleProduct = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const result = yield product_service_1.ProductServices.getSingleProductFromDB(id);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: 'Product is Found Successfully',
+        data: result
+    });
+}));
+exports.ProductControllers = {
+    getAllProduct,
+    getSingleProduct,
+    createProduct,
 };

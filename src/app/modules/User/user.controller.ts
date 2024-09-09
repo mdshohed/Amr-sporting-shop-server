@@ -3,32 +3,28 @@ import catchAsync from "../../utils/catchAsync";
 import sendResponse from "../../utils/sendResponse";
 import { UserServices } from "./user.service";
 
-const getProfile = catchAsync(async (req, res) => {
-  const { refreshToken } = req.cookies;
-
-  const result = await UserServices.getProfileFromDB(refreshToken);
+const getUser = catchAsync(async (req, res) => {
+  const result = await UserServices.createUserIntoDB(req.body);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "User profile retrieved successfully",
+    message: "User Created successfully",
     data: result,
   });
 });
 
-const updateProfile = catchAsync(async (req, res) => {
-  const { refreshToken } = req.cookies;
-  const result = await UserServices.updateProfileIntoDB(refreshToken, req.body);
-
+const createUser = catchAsync(async (req, res) => {
+  const result = await UserServices.getUserFromDB();
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "Rental created successfully",
+    message: "User get successfully",
     data: result,
   });
 });
 
 export const UserControllers = {
-  getProfile,
-  updateProfile,
+  getUser,
+  createUser,
 };

@@ -17,7 +17,7 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const config_1 = __importDefault(require("../config"));
 const AppError_1 = __importDefault(require("../errors/AppError"));
 const catchAsync_1 = __importDefault(require("../utils/catchAsync"));
-const user_model_1 = require("../modules/User/user.model");
+const product_model_1 = require("../modules/Product/product.model");
 const auth = (...requiredRoles) => {
     return (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
         const authHeader = req.headers.authorization;
@@ -38,7 +38,7 @@ const auth = (...requiredRoles) => {
         let { role: role2, userEmail: userEmail2 } = decoded2;
         console.log(role, userEmail, role2, userEmail2);
         // checking if the user is exist
-        const user = yield user_model_1.User.isUserExistsByCustomEmail(userEmail);
+        const user = yield product_model_1.User.isUserExistsByCustomEmail(userEmail);
         if (!user) {
             throw new AppError_1.default(http_status_1.default.NOT_FOUND, "You have no access to this route");
         }
