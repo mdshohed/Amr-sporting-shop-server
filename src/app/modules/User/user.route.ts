@@ -13,7 +13,7 @@ router.post(
 
 router.get(
   "/",
-  validateRequest(updateUserValidationSchema),
+  // validateRequest(updateUserValidationSchema),
   UserControllers.getUser,
 );
 
