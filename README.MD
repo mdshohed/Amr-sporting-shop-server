@@ -15,12 +15,8 @@ npm install
 NODE_ENV=development 
 PORT=5000
 DATABASE_URL=database url
-BCRYPT_SALT_ROUNDS=10
-DEFAULT_PASS=usingYourPassword
-JWT_ACCESS_SECRET=yourSecretKey
-JWT_REFRESH_SECRET=yourSecretKey
-JWT_ACCESS_EXPIRES_IN=1d
-JWT_REFRESH_EXPIRES_IN=365d
+DEFAULT_PASS=your_pass
+STRIPE_SECRET_KAY=stripe_secret_key
 ```
 
 - To Start this project. you have run npm command: `npm run start:dev`
@@ -31,7 +27,7 @@ JWT_REFRESH_EXPIRES_IN=365d
 
 - Live Deployment Link (Server): <a href="" target="_blank"></a>
 
-- GitHub Repository Links (Server): <a href="" target="_blank"></a>
+- GitHub Repository Links (Server): <a href="https://github.com/mdshohed/Amr-sporting-shop-server" target="_blank">https://github.com/mdshohed/Amr-sporting-shop-server</a>
 
 - Project Overview Video:  <a href="" target="_blank"></a>
 
@@ -45,16 +41,18 @@ This a bike rental system where users could easily rent bikes online. User would
 
 **Models:**
 
-1. **User Model**
-2. ****
-3. ****
+1. **Product Model**
+2. **Order Model**
+
+**Controller:**
+
+1. **Stripe Controller**
 
 ### Technology Stack:
 
 - **Programming Language**: TypeScript
 - **Web Framework**: Express.js
 - **ODM & Validation Library**: Zod, Mongoose for MongoDB
-
 
 
 ## npm package
@@ -67,7 +65,5 @@ This a bike rental system where users could easily rent bikes online. User would
 - eslint
 - prettier
 - http-status
-- jsonwebtoken(dependencies/devDependencies)
-- bcrypt(dependencies/devDependencies)
 
 
