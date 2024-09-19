@@ -9,7 +9,6 @@ const ProductSchema = new mongoose_1.Schema({
     },
     description: {
         type: String,
-        unique: true,
         require: true,
     },
     category: {
@@ -42,8 +41,12 @@ const ProductSchema = new mongoose_1.Schema({
     },
     isAvailable: {
         type: Boolean,
-        require: true,
+        default: true,
     },
+    isDeleted: {
+        type: Boolean,
+        default: false,
+    }
 }, {
     timestamps: true,
 });

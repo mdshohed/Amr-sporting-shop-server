@@ -15,6 +15,10 @@ const createProductIntoDB = (payload) => __awaiter(void 0, void 0, void 0, funct
     const result = yield product_model_1.Product.create(payload);
     return result;
 });
+const updateProductIntoDB = (id, payload) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield product_model_1.Product.findByIdAndUpdate(id, payload);
+    return result;
+});
 const getProductFromDB = () => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield product_model_1.Product.find();
     return result;
@@ -23,13 +27,13 @@ const getSingleProductFromDB = (id) => __awaiter(void 0, void 0, void 0, functio
     const result = yield product_model_1.Product.findById(id);
     return result;
 });
+const deleteProductFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    // const result = await Product.findByIdAndDelete( { id }, {isDeleted: true} );
+    const result = yield product_model_1.Product.findByIdAndDelete(id);
+    return result;
+});
 // const updateProfileIntoDB = async (token: string, payload: Partial<TUser>) => {
 //   // checking if the given token is valid
-//   const decoded = jwt.verify(
-//     token,
-//     config.jwt_refresh_secret as string,
-//   ) as JwtPayload;
-//   const { userEmail } = decoded;
 //   // checking if the user is exist
 //   const user = await User.isUserExistsByCustomEmail(userEmail);
 //   if (!user) {
@@ -47,4 +51,6 @@ exports.ProductServices = {
     createProductIntoDB,
     getProductFromDB,
     getSingleProductFromDB,
+    updateProductIntoDB,
+    deleteProductFromDB,
 };

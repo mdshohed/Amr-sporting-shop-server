@@ -9,7 +9,6 @@ const ProductSchema = new Schema<TProduct>(
     },
     description: {
       type: String,
-      unique: true,
       require: true,
     },
     category: {
@@ -42,8 +41,12 @@ const ProductSchema = new Schema<TProduct>(
     },
     isAvailable: {
       type: Boolean,
-      require: true,
+      default: true,
     },
+    isDeleted: {
+      type: Boolean, 
+      default: false,
+    }
   },
   {
     timestamps: true,

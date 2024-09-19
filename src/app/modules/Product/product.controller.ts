@@ -16,13 +16,25 @@ const createProduct = catchAsync(async (req, res, next) => {
   }); 
 });
 
+const updateProduct = catchAsync(async (req, res, next) => {
+  // const zodParseData = UserValidation.userValidationSchema().parse(studentData);
+  const {id} = req.params; 
+  const result = await ProductServices.updateProductIntoDB(id, req.body);
+  sendResponse(res, {
+    statusCode: httpStatus.OK, 
+    success: true, 
+    message: 'Product is Updated Successfully',
+    data: result
+  }); 
+});
+
 
 const getAllProduct = catchAsync(async(req, res, next)=>{
   const result = await ProductServices.getProductFromDB(); 
   sendResponse(res, {
     statusCode: httpStatus.OK, 
     success: true, 
-    message: 'Products is Found Successfully',
+    message: 'Product is retrieving Successfully',
     data: result
   }); 
 })
@@ -38,8 +50,21 @@ const getSingleProduct = catchAsync(async(req, res, next)=>{
   }); 
 })
 
+const deleteProduct = catchAsync(async(req, res, next)=>{
+  const {id} = req.params; 
+  const result = await ProductServices.deleteProductFromDB(id); 
+  sendResponse(res, {
+    statusCode: httpStatus.OK, 
+    success: true, 
+    message: 'Product is deleted Successfully',
+    data: result
+  }); 
+})
+
 export const ProductControllers = {
   getAllProduct,
   getSingleProduct,
   createProduct,
+  updateProduct,
+  deleteProduct, 
 };

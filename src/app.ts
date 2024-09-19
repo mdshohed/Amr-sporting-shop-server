@@ -4,10 +4,14 @@ import cookieParser from "cookie-parser";
 import router from "./app/routes";
 import globalErrorHandler from "./app/middlewares/globalErrorhandler";
 import notFound from "./app/middlewares/notFound";
+import config from "./app/config";
 
 const app: Application = express();
 
+const stripe = require("stripe")(config.stripe_secret_kay);
+
 // parsers
+app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({ origin: ["http://127.0.0.1:5173"] }));

@@ -28,12 +28,23 @@ const createProduct = (0, catchAsync_1.default)((req, res, next) => __awaiter(vo
         data: result
     });
 }));
+const updateProduct = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    // const zodParseData = UserValidation.userValidationSchema().parse(studentData);
+    const { id } = req.params;
+    const result = yield product_service_1.ProductServices.updateProductIntoDB(id, req.body);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: 'Product is Updated Successfully',
+        data: result
+    });
+}));
 const getAllProduct = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield product_service_1.ProductServices.getProductFromDB();
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
-        message: 'Products is Found Successfully',
+        message: 'Product is retrieving Successfully',
         data: result
     });
 }));
@@ -47,8 +58,20 @@ const getSingleProduct = (0, catchAsync_1.default)((req, res, next) => __awaiter
         data: result
     });
 }));
+const deleteProduct = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const result = yield product_service_1.ProductServices.deleteProductFromDB(id);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: 'Product is deleted Successfully',
+        data: result
+    });
+}));
 exports.ProductControllers = {
     getAllProduct,
     getSingleProduct,
     createProduct,
+    updateProduct,
+    deleteProduct,
 };

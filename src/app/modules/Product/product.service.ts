@@ -1,12 +1,13 @@
-import jwt, { JwtPayload } from "jsonwebtoken";
 import { Product } from "./product.model";
-import config from "../../config";
-import httpStatus from "http-status";
-import AppError from "../../errors/AppError";
 import { TProduct } from "./product.interface";
 
 const createProductIntoDB = async(payload: TProduct) =>{
-  const result = await Product.create(payload); 
+  const result = await Product.create(payload);
+  return result; 
+}
+
+const updateProductIntoDB = async( id: string, payload: TProduct) =>{
+  const result = await Product.findByIdAndUpdate(id, payload); 
   return result; 
 }
 
@@ -20,15 +21,16 @@ const getSingleProductFromDB = async (id: string) => {
   const result = await Product.findById( id );
   return result;
 }
+
+const deleteProductFromDB = async (id: string) => {
+  
+  // const result = await Product.findByIdAndDelete( { id }, {isDeleted: true} );
+  const result = await Product.findByIdAndDelete( id);
+  return result;
+}
 // const updateProfileIntoDB = async (token: string, payload: Partial<TUser>) => {
 //   // checking if the given token is valid
 
-//   const decoded = jwt.verify(
-//     token,
-//     config.jwt_refresh_secret as string,
-//   ) as JwtPayload;
-
-//   const { userEmail } = decoded;
 
 //   // checking if the user is exist
 //   const user = await User.isUserExistsByCustomEmail(userEmail);
@@ -50,4 +52,6 @@ export const ProductServices = {
   createProductIntoDB,
   getProductFromDB,
   getSingleProductFromDB,
+  updateProductIntoDB,
+  deleteProductFromDB,
 };

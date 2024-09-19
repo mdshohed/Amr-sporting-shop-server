@@ -11,7 +11,7 @@ export const createProductValidationSchema = z.object({
     productDescription: z.string(),
     price: z.number(),
     image: z.string(),
-    isAvailable: z.boolean(),
+    isAvailable: z.boolean().optional(),
   }),
 });
 
@@ -26,6 +26,5 @@ export const updateProductValidationSchema = z.object({
     productDescription: z.string().optional(),
     price: z.number().optional(),
     image: z.string().optional(),
-    isAvailable: z.string().optional(),
   }),
 });

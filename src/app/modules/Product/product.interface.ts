@@ -11,6 +11,7 @@ export interface TProduct {
   price: number;
   image: string;
   isAvailable?: boolean;
+  isDeleted?: boolean; 
 }
 
 // @typescript-eslint/no-unused-vars

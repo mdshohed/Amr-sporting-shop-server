@@ -18,12 +18,15 @@ const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const routes_1 = __importDefault(require("./app/routes"));
 const globalErrorhandler_1 = __importDefault(require("./app/middlewares/globalErrorhandler"));
 const notFound_1 = __importDefault(require("./app/middlewares/notFound"));
+const config_1 = __importDefault(require("./app/config"));
 const app = (0, express_1.default)();
+const stripe = require("stripe")(config_1.default.stripe_secret_kay);
 // parsers
+app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 app.use((0, cookie_parser_1.default)());
-// app.use(cors({ origin: [""] }));
-app.use((0, cors_1.default)({ origin: "*" }));
+app.use((0, cors_1.default)({ origin: ["http://127.0.0.1:5173"] }));
+// app.use(cors({ origin: "*"}));
 // application routes
 app.use("/api", routes_1.default);
 const test = (req, res) => __awaiter(void 0, void 0, void 0, function* () {

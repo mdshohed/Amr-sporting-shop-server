@@ -13,7 +13,7 @@ exports.createProductValidationSchema = zod_1.z.object({
         productDescription: zod_1.z.string(),
         price: zod_1.z.number(),
         image: zod_1.z.string(),
-        isAvailable: zod_1.z.boolean(),
+        isAvailable: zod_1.z.boolean().optional(),
     }),
 });
 exports.updateProductValidationSchema = zod_1.z.object({
@@ -27,6 +27,5 @@ exports.updateProductValidationSchema = zod_1.z.object({
         productDescription: zod_1.z.string().optional(),
         price: zod_1.z.number().optional(),
         image: zod_1.z.string().optional(),
-        isAvailable: zod_1.z.string().optional(),
     }),
 });
