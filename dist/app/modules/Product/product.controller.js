@@ -41,6 +41,7 @@ const updateProduct = (0, catchAsync_1.default)((req, res, next) => __awaiter(vo
 }));
 const getAllProduct = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield product_service_1.ProductServices.getProductFromDB();
+    console.log("getAll Product", result);
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,

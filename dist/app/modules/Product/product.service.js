@@ -32,21 +32,6 @@ const deleteProductFromDB = (id) => __awaiter(void 0, void 0, void 0, function* 
     const result = yield product_model_1.Product.findByIdAndDelete(id);
     return result;
 });
-// const updateProfileIntoDB = async (token: string, payload: Partial<TUser>) => {
-//   // checking if the given token is valid
-//   // checking if the user is exist
-//   const user = await User.isUserExistsByCustomEmail(userEmail);
-//   if (!user) {
-//     throw new AppError(httpStatus.NOT_FOUND, "This user is not found !");
-//   }
-//   const filter = { email: userEmail };
-//   // const result = await User.findByIdAndUpdate(filter, payload, {
-//   const result = await User.findOneAndUpdate(filter, payload, {
-//     new: true,
-//     runValidators: true,
-//   });
-//   return result;
-// };
 exports.ProductServices = {
     createProductIntoDB,
     getProductFromDB,

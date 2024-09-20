@@ -31,6 +31,8 @@ const updateProduct = catchAsync(async (req, res, next) => {
 
 const getAllProduct = catchAsync(async(req, res, next)=>{
   const result = await ProductServices.getProductFromDB(); 
+  console.log("getAll Product", result)
+  
   sendResponse(res, {
     statusCode: httpStatus.OK, 
     success: true, 

@@ -14,8 +14,6 @@ const stripe = require("stripe")(config.stripe_secret_kay);
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
-// app.use(cors({ origin: ["https://amr-sporting-shop.vercel.app/"] }));
-// app.use(cors({ origin: "*"}));
 app.use(cors({
   origin: '*', 
   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
