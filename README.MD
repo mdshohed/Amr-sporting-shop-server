@@ -25,7 +25,7 @@ STRIPE_SECRET_KAY=stripe_secret_key
 ### Link: 
 <div >
 
-- Live Deployment Link (Server): <a href="" target="_blank"></a>
+- Live Deployment Link (Server): <a href="https://amr-sporting-shop-server.vercel.app/" target="_blank">https://amr-sporting-shop-server.vercel.app/</a>
 
 - GitHub Repository Links (Server): <a href="https://github.com/mdshohed/Amr-sporting-shop-server" target="_blank">https://github.com/mdshohed/Amr-sporting-shop-server</a>
 
