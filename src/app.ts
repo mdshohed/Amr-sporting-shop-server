@@ -16,6 +16,10 @@ app.use(express.json());
 app.use(cookieParser());
 // app.use(cors({ origin: ["https://amr-sporting-shop.vercel.app/"] }));
 // app.use(cors({ origin: "*"}));
+app.use(cors({
+  origin: 'https://amr-sporting-shop.vercel.app', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+}));
 
 // application routes
 app.use("/api", router);
