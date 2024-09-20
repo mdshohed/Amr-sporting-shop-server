@@ -28,7 +28,7 @@ app.use((0, cookie_parser_1.default)());
 // app.use(cors({ origin: ["https://amr-sporting-shop.vercel.app/"] }));
 // app.use(cors({ origin: "*"}));
 app.use((0, cors_1.default)({
-    origin: 'https://amr-sporting-shop.vercel.app',
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
 // application routes
