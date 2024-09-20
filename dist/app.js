@@ -25,8 +25,12 @@ const stripe = require("stripe")(config_1.default.stripe_secret_kay);
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 app.use((0, cookie_parser_1.default)());
-app.use((0, cors_1.default)({ origin: ["http://127.0.0.1:5173"] }));
+// app.use(cors({ origin: ["https://amr-sporting-shop.vercel.app/"] }));
 // app.use(cors({ origin: "*"}));
+app.use((0, cors_1.default)({
+    origin: 'https://amr-sporting-shop.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
 // application routes
 app.use("/api", routes_1.default);
 const test = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
