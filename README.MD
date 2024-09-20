@@ -1,3 +1,5 @@
+## Node + Express + TypeScript + Mongoose
+
 
 ### How to run this project
 
@@ -7,6 +9,7 @@
 git clone 
 cd sporting-goods-server
 npm install
+npm run start:dev
 ```
 
 - Next, You will need to setup .env file where you have to setup this process config file: 
@@ -29,7 +32,8 @@ STRIPE_SECRET_KAY=stripe_secret_key
 
 - GitHub Repository Links (Server): <a href="https://github.com/mdshohed/Amr-sporting-shop-server" target="_blank">https://github.com/mdshohed/Amr-sporting-shop-server</a>
 
-- Project Overview Video:  <a href="" target="_blank"></a>
+- Project Overview Video:  <a href="https://youtu.be/T3aIxBmrrJU" target="_blank">Amr-Sporting-Shop-Management-Project</a>
+
 
 </div>
 
@@ -37,7 +41,7 @@ STRIPE_SECRET_KAY=stripe_secret_key
 
 ### Project Description: Bike Rental Reservation System Backend
 
-This a bike rental system where users could easily rent bikes online. User would be able to handle user registrations, bike availability, and booking management efficiently.
+A comprehensive e-commerce website for sporting goods business. offering a wide range of equipment and accessories for various sports
 
 **Models:**
 
